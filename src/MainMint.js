@@ -2,10 +2,8 @@ import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import roboPunksNFT from "./RoboPunksNFT.json";
-import SkiesofHeroes from "./SkiesofHeroes.json";
 
 const roboPunksNFTAddress = "0xBA7d0E7d36b733ff8113980a263cde09E3129Be3";
-const skiesofheroesNFTAddress = "0xBbF7FFe7B87717bCeDaA363a497a421B1E4dE6D7";
 
 const MaintMint = ({ accounts, setAccounts }) => {
   const [mintAmount, setMintAmount] = useState(1);
@@ -16,8 +14,8 @@ const MaintMint = ({ accounts, setAccounts }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
-        skiesofheroesNFTAddress,
-        SkiesofHeroes.abi,
+        roboPunksNFTAddress,
+        roboPunksNFT.abi,
         signer
       );
       try {
